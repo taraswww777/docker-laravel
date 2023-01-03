@@ -22,3 +22,10 @@ services:
     restart: always
     ports:
       - 6080:8080
+
+  composer:
+    image: composer:2.5.1
+    volumes:
+      - ${APP_PATH_HOST} = ${APP_PATH_CONTAINER}
+    working_dir: ${APP_PATH_CONTAINER}
+    command: composer install
